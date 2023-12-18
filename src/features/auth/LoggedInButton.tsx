@@ -15,13 +15,15 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {} from "@radix-ui/react-alert-dialog";
 import { useMutation } from "@tanstack/react-query";
-import { Loader, LogOut } from "lucide-react";
+import { Loader, LogOut, User2 } from "lucide-react";
 import { Session } from "next-auth";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 import React from "react";
 
 export type LoggedInButtonProps = {
@@ -53,6 +55,13 @@ export default function LoggedInButton(props: LoggedInButtonProps) {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
+        <DropdownMenuItem asChild>
+            <Link href="/account">
+              <User2 className="mr-2" size={12} />
+              Account
+            </Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
           <AlertDialogTrigger asChild>
             <DropdownMenuItem>
               <LogOut className="mr-2" size={12} />
